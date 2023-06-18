@@ -86,6 +86,31 @@ Our linear regression model obtained a $R^2$ value of 9.88e-05, which is almost 
 
 
 
+We added three features total in order to improve our model’s performance from the baseline. The first feature we added was uniqueness, which essentially calculated how unique a recipe’s ingredients are in comparison to the entire dataset. The uniqueness score of a given recipe was calculated by finding the mean uniqueness of all the ingredients in the recipe, and uniqueness itself was calculated by finding the number of times an ingredient appeared in a recipe. 
+
+uniqueness of an ingredient = # of timeless that ingredient appeared in recipe 
+uniqueness score of a recipe = mean uniqueness of all ingredients in the recipe
+
+We engineered this feature through our function, UniquenessEncoder. We believe that this feature helped improve our model’s performance because it helped the model learn the nuances between each recipe, and added a new level of aspects making each recipe unique, which gives more room to find patterns that lead to lower and/or higher ratings. By turning categorical data that in its raw form inherently presents no form of unique information to our model into numerical data, we are able to teach our model more patterns, which in turn can help it make more accurate and precise predictions. 
+
+The second feature that we created was contribution - we engineered this feature by creating a function FrequencyEncoder, which took in the contributor_id column, and encoded each row with the number of recipes that the respective contributor published. Once again, we turned categorical information with inherently no useful value to our model, to numerical data that can be utilized to help our model learn patterns and associations, and therefore make better predictions.
+
+The last set of features we created was by one-hot encoding the tags column. The tags column contains information about each recipe in a form of a list, with tags such as “easy” or “healthy”. We found the most popular tags, and one hot encoded them. Our function tagsONeHotEncoder executes this task and engineers our new features. One-hot-encoding the most popular tags creates a large amount of new columns, which provide even further numerical data to train our model.
+
+As seen in the baseline, our model was not strong or accurate after being trained on the pre-existing numerical columns in the DataFrame. Therefore, in attempts to make our model perform with higher accuracy, we decided to create further numerical data to train it on, by utilizing the information given to us in the categorical columns. In all the features that we engineered, we worked with categorical columns and transformed them to numerical ones, so that our model has more concrete values to learn trends and patterns from, in turn helping it make better predictions. 
+
+We preprocessed our data by transforming all our columns using the feature engineering methods described above, alongside with scaling all our numerical columns by finding the square root of each value in every column. 
+
+We then proceeded to create 2 pipelines, one with the GradientBoostingRegressor, which we use in order to increase the model complexity and performance, and one with the Random Forest Regression Model, as it is better suited for preventing overfitting than the Decision Tree Regressor. After performing GridSearch, we found that the best parameters are a maximum depth of 7 and n_estimators of 140. Given this information, we fit our model and found the R-squared score of 0.01052, which is the best score from the best model which was given to use by the GradientBoostingRegressor. The R-Squared value from our Random Forest Regression model was 0.009, therefore not performing as well as our GradientBoostingRegressor model. Other metrics include:
+RMSE of Gradient Boosting Regression 0.3877592466867749
+Absolute MSE of Gradient Boosting Regression 0.45389555694978706
+RMSE of Random Forest model 0.38688636535066573
+Absolute MSE of Random Forest model 0.4548144130254471
+
+Overall, our final model, which was using the pipeline with GradientBoostingRegressor, and preprocessed with all our new features,and optimal parameters given to us by GridSearch, performs better than our baseline, with the R-squared value of our new model being 0.01052, compared to the baseline R-squared value from our baseline model, which was  7.714844734196813e-05, in other words, extremely close to zero. Although our current R-Score is not extremely high, it is still performing better than the baseline. We have engineered multiple features, and unfortunately there does not seem to be as strong of underlying patterns between average recipe rating and the columns that we were able to discover given our current tools. Regardless, we were able to make an improvement in our model.
+
+
+
 
 
 

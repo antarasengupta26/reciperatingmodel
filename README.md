@@ -112,7 +112,11 @@ Overall, our final model, which was using the pipeline with GradientBoostingRegr
 
 
 ## Fairness Analysis
+
+
 <iframe src="fairnessplot.html" width=800 height=600 frameBorder=0></iframe>
+
+
 
 When approaching our fairness analysis, we chose 2 groups. Our Group X was hard recipes, which had more than 10 steps, and our Group Y was easy recipes, which are recipes that have 10 or less steps. We chose the threshold of 10 steps based on our observations of the values in the n_steps column in the dataset, which detailed the amount of steps that each recipe required. 
 

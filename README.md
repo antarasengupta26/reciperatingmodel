@@ -111,6 +111,8 @@ Overall, our final model, which was using the pipeline with GradientBoostingRegr
 
 
 
+## Fairness Analysis
+<iframe src="fairnessplot.html" width=800 height=600 frameBorder=0></iframe>
 
 
 

@@ -114,6 +114,12 @@ Overall, our final model, which was using the pipeline with GradientBoostingRegr
 ## Fairness Analysis
 <iframe src="fairnessplot.html" width=800 height=600 frameBorder=0></iframe>
 
+When approaching our fairness analysis, we chose 2 groups. Our Group X was hard recipes, which had more than 10 steps, and our Group Y was easy recipes, which are recipes that have 10 or less steps. We chose the threshold of 10 steps based on our observations of the values in the n_steps column in the dataset, which detailed the amount of steps that each recipe required. 
+
+The evaluation metric we chose for this analysis for RMSE. Our null hypothesis was that our model is fair, and that the RMSE between hard and easy recipes are the same, and any differences are due to random chance. Our alternative hypothesis was that our model is unfair, and the RMSE for the recipes categorized as hard is greater than those recipes that are categorized as easy. 
+
+Our observed difference in RMSE was 0.01765. The significance level that we chose was alpha = 0.05, and our resulting p-value was 0.1448. Due to 0.1448 being greater than 0.05, we could not reject the null hypothesis, meaning that we were not able to observe any unfairness residing in our model from this given permutation test. 
+
 
 
 

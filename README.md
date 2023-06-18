@@ -15,7 +15,9 @@ We will be evaluating our model with the R squared value. The reason for evaluat
 
 At the time of making our prediction, we will only have the information about the recipe itself. We do not know how the public will interact with the recipe, so information such as the comments or ratings a recipe will get will not be available.
 
-**START ANTARA*** 
+
+
+***START ANTARA*** 
 
 In this project, we are exploring the prediction of the average rating of a recipe given the recipe name, based on both pre-existing and engineered features. This problem is a regression one as the target of our discovery is a continuous numeric value, the average rating of a recipe, and we are attempting to analyze and find a relationship between existing & engineered features and the average recipe rating using our model. 
 
@@ -47,7 +49,13 @@ The pipeline of our baseline model will be the following:
 1. Standard Scale all the features
 2. Fit all the features into a linear regression model.
 
+
+
+
    ***START ANTARA***
+
+
+
    Our baseline model is a simple linear regression model, which uses the features “minutes”, “n_ingredients”, “n_steps”, and “calories (#)” . All four of these columns are numerical, meaning that all of our features are numeric. We chose to do this because when dealing with numerical data (that has inherent value within itself), there is not as much immediate encoding necessary, such as with categorical features and variables, and we wanted to observe our baseline with mostly raw data (part of our cleaning process extracting the caloric values from another column and making it its own column), before we created our final model which involves quite a bit of feature engineering and encoding. 
 
 The performance of our model is as follows:

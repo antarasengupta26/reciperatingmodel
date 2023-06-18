@@ -1,5 +1,7 @@
 # Recipe Rating Model
 
+by George Chong (gchong@ucsd.edu) and Antara Sengupta (asengupt@ucsd.edu) 
+
 
 ## Framing the Problem 
 In this project, we will be answering the predictive problem: 
